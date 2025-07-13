@@ -1,0 +1,103 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #1E1E1E;
+  color: #F2F2F2;
+}
+
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.search-container {
+  margin-bottom: 30px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 50px;
+  color: #F2F2F2;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #F66600;
+  box-shadow: 0 0 0 3px rgba(246, 102, 0, 0.4);
+}
+
+.results-container .no-results {
+  text-align: center;
+  color: #888;
+  padding: 40px 0;
+}
+
+.music-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.music-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.music-item:hover {
+  background-color: #2a2a2a;
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.music-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.music-artist {
+  font-size: 14px;
+  color: #a0a0a0;
+}
+
+.add-btn {
+  background: none;
+  border: 2px solid #555;
+  color: #F2F2F2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.add-btn:hover {
+  border-color: #F66600;
+  color: #F66600;
+  transform: scale(1.1);
+}
+
+

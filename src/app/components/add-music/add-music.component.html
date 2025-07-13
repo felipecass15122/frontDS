@@ -1,0 +1,63 @@
+<div class="form-container">
+  <h2 class="form-title">Cadastrar Nova Música</h2>
+  <p class="form-subtitle">Preencha os dados para adicionar uma música ao acervo.</p>
+
+  <form>
+    <div class="input-group">
+      <label for="nome">Nome da Música</label>
+      <input 
+        type="text" 
+        id="nome" 
+        name="nome"
+        placeholder="Ex: Blinding Lights"
+        
+        required>
+    </div>
+
+    <div class="input-group">
+      <label for="artista">Artista</label>
+      <select 
+        id="artista" 
+        name="artista"
+        
+        required>
+        <option  disabled>Selecione um artista</option>
+          
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="album">Álbum</label>
+      <input 
+        type="text" 
+        id="album" 
+        name="album"
+        placeholder="Ex: After Hours"
+        required>
+    </div>
+
+    <div class="input-group">
+      <label for="genero">Gênero</label>
+      <input 
+        type="text" 
+        id="genero" 
+        name="genero"
+        placeholder="Ex: Synth-pop"
+        required>
+    </div>
+
+    <div class="input-group">
+      <label for="tempo">Duração (em segundos)</label>
+      <input 
+        type="number" 
+        id="tempo" 
+        name="tempo"
+        placeholder="Ex: 200"
+        required>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      Cadastrar Música
+    </button>
+  </form>
+</div>

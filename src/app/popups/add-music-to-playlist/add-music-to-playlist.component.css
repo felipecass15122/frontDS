@@ -1,0 +1,98 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #2a2a2a;
+  padding: 30px;
+  border-radius: 12px;
+  width: 70%;
+  max-width: 400px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.modal-title {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.playlist-selection {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 30px;
+}
+
+.playlist-option {
+  display: block;
+  padding: 12px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 8px;
+  border: 1px solid #444;
+}
+
+.playlist-option:hover {
+  background-color: #383838;
+}
+
+.playlist-option input[type="radio"] {
+  display: none;
+}
+
+.playlist-option input[type="radio"]:checked + span {
+  color: #F66600;
+  font-weight: bold;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.modal-actions button {
+  flex-grow: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel {
+  background-color: #444;
+  color: #F2F2F2;
+}
+
+.btn-cancel:hover {
+  background-color: #555;
+}
+
+.btn-confirm {
+  background-color: #F66600;
+  color: #FFFFFF;
+}
+
+.btn-confirm:hover:not(:disabled) {
+  background-color: #e05c00;
+}
+
+.btn-confirm:disabled {
+  background-color: #555;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
