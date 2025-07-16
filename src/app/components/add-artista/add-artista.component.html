@@ -2,9 +2,7 @@
   <h2 class="form-title">Cadastrar Novo Artista</h2>
   <p class="form-subtitle">Preencha os dados para adicionar um artista ao sistema.</p>
 
-  <form>
-    
-
+  <form (ngSubmit)="cadastrarArtista()" #artistaForm="ngForm">
     <div class="input-group">
       <label for="nome">Nome do Artista</label>
       <input 
@@ -12,11 +10,10 @@
         id="nome" 
         name="nome"
         placeholder="Ex: The Weeknd"
-     
+        [(ngModel)]="artista.nome"
         required>
     </div>
 
-    
     <div class="input-group">
       <label for="descricao">Descrição (Biografia)</label>
       <textarea 
@@ -24,13 +21,12 @@
         name="descricao"
         rows="5"
         placeholder="Fale um pouco sobre o artista..."
-        
+        [(ngModel)]="artista.descricao"
         required>
       </textarea>
     </div>
 
-    
-    <button type="submit" class="submit-btn">
+    <button type="submit" class="submit-btn" [disabled]="!artistaForm.form.valid">
       Cadastrar Artista
     </button>
   </form>

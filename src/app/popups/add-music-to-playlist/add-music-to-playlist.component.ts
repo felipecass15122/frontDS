@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
+
 
 @Component({
   selector: 'app-add-music-to-playlist',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './add-music-to-playlist.component.css'
 })
 export class AddMusicToPlaylistComponent {
+  isModalVisible: boolean = false;
 
+  @Output() closeRequest = new EventEmitter<void>();
+   onClose(): void {
+    this.closeRequest.emit();
+  }
 }

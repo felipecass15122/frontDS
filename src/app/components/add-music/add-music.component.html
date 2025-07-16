@@ -2,7 +2,8 @@
   <h2 class="form-title">Cadastrar Nova Música</h2>
   <p class="form-subtitle">Preencha os dados para adicionar uma música ao acervo.</p>
 
-  <form>
+  <form (ngSubmit)="cadastrarMusica()" #musicaForm="ngForm">
+    
     <div class="input-group">
       <label for="nome">Nome da Música</label>
       <input 
@@ -10,7 +11,7 @@
         id="nome" 
         name="nome"
         placeholder="Ex: Blinding Lights"
-        
+        [(ngModel)]="musica.nome"
         required>
     </div>
 
@@ -19,44 +20,38 @@
       <select 
         id="artista" 
         name="artista"
-        
+        [(ngModel)]="musica.artista.id"
         required>
-        <option  disabled>Selecione um artista</option>
-          
+        <option [ngValue]="null" disabled>Selecione um artista</option>
+        <option *ngFor="let artista of artistas" [value]="artista.id">
+          {{ artista.nome }}
+        </option>
       </select>
     </div>
 
     <div class="input-group">
-      <label for="album">Álbum</label>
+      <label for="tags">Tags</label>
       <input 
         type="text" 
-        id="album" 
-        name="album"
-        placeholder="Ex: After Hours"
+        id="tags" 
+        name="tags"
+        placeholder="Ex: pop, 80s, synthwave"
+        [(ngModel)]="musica.tags"
         required>
     </div>
 
     <div class="input-group">
-      <label for="genero">Gênero</label>
+      <label for="urlMusica">URL da Música</label>
       <input 
         type="text" 
-        id="genero" 
-        name="genero"
-        placeholder="Ex: Synth-pop"
+        id="urlMusica" 
+        name="urlMusica"
+        placeholder="Ex: [https://servidor.com/musica.mp3](https://servidor.com/musica.mp3)"
+        [(ngModel)]="musica.urlMusica"
         required>
     </div>
 
-    <div class="input-group">
-      <label for="tempo">Duração (em segundos)</label>
-      <input 
-        type="number" 
-        id="tempo" 
-        name="tempo"
-        placeholder="Ex: 200"
-        required>
-    </div>
-
-    <button type="submit" class="submit-btn">
+    <button type="submit" class="submit-btn" [disabled]="!musicaForm.form.valid">
       Cadastrar Música
     </button>
   </form>

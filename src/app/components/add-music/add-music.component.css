@@ -66,6 +66,10 @@
   background-size: 12px;
 }
 
+.input-group select option {
+  background: #2a2a2a; 
+  color: #F2F2F2;      
+}
 .submit-btn {
   width: 100%;
   padding: 15px;

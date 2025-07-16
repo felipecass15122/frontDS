@@ -1,9 +1,8 @@
 <div class="form-container">
   <h2 class="form-title">Criar Nova Playlist</h2>
-  <p class="form-subtitle">Dê um nome à sua nova coleção de músicas.</p>
+  <p class="form-subtitle">Dê um nome e defina a visibilidade da sua nova coleção.</p>
 
-
-  <form >
+  <form (ngSubmit)="cadastrarPlaylist()" #playlistForm="ngForm">
     
     <div class="input-group">
       <label for="playlistName">Nome da Playlist</label>
@@ -12,11 +11,25 @@
         id="playlistName" 
         name="playlistName"
         placeholder="Ex: As Melhores do Indie"
+        [(ngModel)]="playlist.nome"
         required>
     </div>
 
+    <div class="input-group">
+      <label>Visibilidade</label>
+      <div class="radio-group">
+        <label class="radio-label">
+          <input type="radio" name="visibilidade" [value]="true" [(ngModel)]="playlist.visibilidade">
+          <span>Pública</span>
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="visibilidade" [value]="false" [(ngModel)]="playlist.visibilidade">
+          <span>Privada</span>
+        </label>
+      </div>
+    </div>
 
-    <button type="submit" class="bnt-primary" >
+    <button type="submit" class="submit-btn" [disabled]="!playlistForm.form.valid">
       Criar Playlist
     </button>
   </form>

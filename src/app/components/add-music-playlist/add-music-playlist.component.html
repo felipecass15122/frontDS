@@ -21,7 +21,7 @@
           <span class="music-name">nome musica</span>
           <span class="music-artist">Artista</span>
         </div>
-        <button class="add-btn"title="Adicionar à playlist">
+        <button class="add-btn"title="Adicionar à playlist" (click)="abrirModal()">
           <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
         </button>
       </li>
@@ -30,5 +30,5 @@
 </div>
 
 
-<app-add-music-to-playlist></app-add-music-to-playlist>
+<app-add-music-to-playlist *ngIf="isModalVisible"  (closeRequest)="fecharModal()"></app-add-music-to-playlist>
 <app-nav-bar></app-nav-bar>
