@@ -1,30 +1,40 @@
 <div class="register-container">
   <div class="register-card">
-    
     <h1 class="register-titulo">Criar conta</h1>
 
-    <form class="register-form">
+    <form class="register-form" (ngSubmit)="registrarUsuario()" #registerForm="ngForm">
+      
+      <!-- Campo Nome Completo (Adicionado) -->
+      <div class="form-group">
+        <label class="label-input" for="nome">Nome Completo</label>
+        <input type="text" id="nome" class="input-padrao" name="nome" placeholder="Digite seu nome completo" [(ngModel)]="usuario.nome" required>
+      </div>
+
+      <!-- Campo Login (Adicionado) -->
+      <div class="form-group">
+        <label class="label-input" for="login">Nome de Usuário (Login)</label>
+        <input type="text" id="login" class="input-padrao" name="login" placeholder="Crie um nome de usuário" [(ngModel)]="usuario.login" required>
+      </div>
       
       <div class="form-group">
-        <label class = "label-input" for="email">E-mail</label>
-        <input type="email" id="email" class="input-padrao" name="email" placeholder="Digite seu e-mail" required>
+        <label class="label-input" for="email">E-mail</label>
+        <input type="email" id="email" class="input-padrao" name="email" placeholder="Digite seu e-mail" [(ngModel)]="usuario.email" required>
       </div>
 
       <div class="form-group">
-        <label  class = "label-input" for="password">Senha</label>
-        <input type="password" id="password" class="input-padrao" name="password" placeholder="Crie uma senha" required>
+        <label class="label-input" for="password">Senha</label>
+        <input type="password" id="password" class="input-padrao" name="password" placeholder="Crie uma senha" [(ngModel)]="usuario.senha" required>
       </div>
       
       <div class="form-group">
-        <label class = "label-input" for="confirmPassword">Confirmar Senha</label>
-        <input type="password" id="confirmPassword" class="input-padrao" name="confirmPassword" placeholder="Confirme sua senha" required>
+        <label class="label-input" for="confirmPassword">Confirmar Senha</label>
+        <!-- A confirmação de senha não é enviada para a API, por isso usa uma variável separada -->
+        <input type="password" id="confirmPassword" class="input-padrao" name="confirmPassword" placeholder="Confirme sua senha" [(ngModel)]="confirmPassword" required>
       </div>
 
-      <button type="submit" class="bnt-primary">
+      <button type="submit" class="bnt-primary" [disabled]="!registerForm.form.valid">
         Cadastrar
       </button>
-      
-     
     </form>
   </div>
 </div>

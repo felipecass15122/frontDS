@@ -1,30 +1,33 @@
-<div class="home-container" >
+<div class="home-container" *ngIf="currentUser">
 
   <header class="user-header">
-    <img src=""  alt="Avatar do usuário" class="user-avatar">
     <div class="user-info">
-      <span class="user-name">user name</span>
-      <span class="user-level">user level</span>
+      <span class="user-name">{{ currentUser.nome}}</span>
+      <span class="user-level">{{ currentUser.nivelAcesso }}</span>
     </div>
+   
+    <button class="logout-btn" (click)="logout()" title="Sair">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+    </button>
   </header>
 
+ 
   <section class="content-section">
     <h2 class="section-title">Playlists</h2>
     <div class="horizontal-scroll-container">
-      <div class="scroll-item">
-        <img src="" alt="Capa da playlist" class="item-image">
-        <span class="item-name">nome da playlist</span>
+      <div class="scroll-item" *ngFor="let playlist of playlists">
+        <img [src]="playlist.imageUrl" alt="Capa da playlist {{ playlist.name }}" class="item-image">
+        <span class="item-name">{{ playlist.name }}</span>
       </div>
     </div>
   </section>
 
-
   <section class="content-section">
     <h2 class="section-title">Artistas</h2>
     <div class="horizontal-scroll-container">
-      <div class="scroll-item">
-        <img  alt="Foto do artista" class="item-image artist-image">
-        <span class="item-name">nome artista</span>
+      <div class="scroll-item" *ngFor="let artist of artistas">
+        <img [src]="artist.imageUrl" alt="Foto do artista {{ artist.name }}" class="item-image artist-image">
+        <span class="item-name">{{ artist.name }}</span>
       </div>
     </div>
   </section>
@@ -32,19 +35,18 @@
   <section class="content-section">
     <h2 class="section-title">Ouvidas recentemente</h2>
     <ul class="song-list">
-      <li class="song-item" >
-        <img src="" alt="Capa do álbum da música" class="song-image">
+      <li class="song-item" *ngFor="let song of musicasRecentes">
+        <img [src]="song.imageUrl" alt="Capa do álbum da música {{ song.name }}" class="song-image">
         <div class="song-details">
-          <span class="song-name">nome musica</span>
-          <span class="song-artist-streams">artista</span>
+          <span class="song-name">{{ song.name }}</span>
+          <span class="song-artist-streams">{{ song.artist }} &middot; {{ song.streams }}</span>
         </div>
         <button class="more-options-btn">
-          <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
         </button>
       </li>
     </ul>
   </section>
-
 </div>
 
 <app-nav-bar></app-nav-bar>
