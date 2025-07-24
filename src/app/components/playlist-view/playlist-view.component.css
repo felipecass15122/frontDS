@@ -54,7 +54,7 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    border: 2px solid #007bff;
+    border: 2px solid #ff8c00;
 }
 
 .playlist-cover {
@@ -96,7 +96,7 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    border: 2px solid #007bff;
+    border: 2px solid #ff8c00;
 }
 
 .song-list-container {

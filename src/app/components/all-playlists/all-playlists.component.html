@@ -1,6 +1,6 @@
 <div class="page-container">
-  <h2 class="page-title">Minhas Playlists</h2>
-  <button class="bnt-primary" routerLink="/createPlaylist">Adicionar playlist</button>  
+  <h2 class="page-title">Playlists</h2>
+
   <div class="loader-container" *ngIf="isLoading">
     <div class="loader"></div>
   </div>
@@ -8,7 +8,7 @@
  
   <div class="no-results" *ngIf="!isLoading && playlists.length === 0">
     <p>Você ainda não criou nenhuma playlist.</p>
-    <button class="bnt-primary" routerLink="/createPlaylist">Criar minha primeira playlist</button>
+    <button class="btn-create" routerLink="/createPlaylist">Criar minha primeira playlist</button>
   </div>
 
 
@@ -28,6 +28,7 @@
       
       <div class="card-info">
         <span class="playlist-name">{{ playlist.nome }}</span>
+    
       </div>
     </div>
   </div>

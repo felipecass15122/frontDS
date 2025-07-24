@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { PlaylistCreateDTO } from '../models/playlist.dto';
+import { PlaylistCreateDTO, PlaylistDTO } from '../models/playlist.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +15,13 @@ export class PlaylistService {
 
   public insert(playlistDTO: PlaylistCreateDTO): Observable<any> {
     return this.http.post<any>(this.apiUrl, playlistDTO);
+  }
+
+   public findAll(): Observable<PlaylistDTO[]> {
+    return this.http.get<PlaylistDTO[]>(this.apiUrl);
+  }
+
+  public findById(id: number): Observable<PlaylistDTO> {
+    return this.http.get<PlaylistDTO>(`${this.apiUrl}/${id}`);
   }
 }

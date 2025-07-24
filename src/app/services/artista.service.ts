@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ArtistaDTO } from '../models/artista.dto'; 
+import { ArtistaDTO, ArtistaCreateDTO } from '../models/artista.dto'; 
 
 
 @Injectable({
@@ -13,7 +13,17 @@ export class ArtistaService {
 
   constructor(private http: HttpClient) { }
 
-  public insert(artistaDTO: ArtistaDTO): Observable<any> {
+  public insert(artistaDTO: ArtistaCreateDTO): Observable<any> {
     return this.http.post<any>(this.apiUrl, artistaDTO);
   }
+
+  public findAll(): Observable<ArtistaDTO[]> {
+    return this.http.get<ArtistaDTO[]>(this.apiUrl);
+  }
+
+  public findById(id: number): Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/${id}`)
+  }
+
+  
 }

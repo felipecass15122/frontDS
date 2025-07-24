@@ -20,7 +20,7 @@
       <select 
         id="artista" 
         name="artista"
-        [(ngModel)]="musica.artista.id"
+        [(ngModel)]="musica.id_artista"
         required>
         <option [ngValue]="null" disabled>Selecione um artista</option>
         <option *ngFor="let artista of artistas" [value]="artista.id">
@@ -47,7 +47,7 @@
         id="urlMusica" 
         name="urlMusica"
         placeholder="Ex: [https://servidor.com/musica.mp3](https://servidor.com/musica.mp3)"
-        [(ngModel)]="musica.urlMusica"
+        [(ngModel)]="musica.url_musica"
         required>
     </div>
 
@@ -56,3 +56,5 @@
     </button>
   </form>
 </div>
+
+<app-nav-bar></app-nav-bar>

@@ -1,74 +1,45 @@
-<div class="playlist-container">
+<div class="playlist-container" *ngIf="!isLoading">
   <div class="top-bar">
-    <button class="back-button options-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-arrow-back">
+    <button class="back-button options-btn" (click)="navigateBack()">
+      <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="currentColor" class="icon-arrow-back">
         <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
       </svg>
     </button>
-    <span class="from-text">FROM "PLAYLISTS"</span>
-    <button class="more-options-button options-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-more-options">
-        <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
-      </svg>
+    <span class="from-text">DA SUA BIBLIOTECA</span>
+     <button class="options-btn" (click)="replicarPlaylist()" title="Replicar Playlist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
     </button>
+
   </div>
 
-  <div class="playlist-header">
+  <div class="playlist-header" *ngIf="playlist">
     <div class="playlist-cover-wrapper">
-      <img src="assets/images/lofi-loft-cover.jpg" alt="Lofi Loft Playlist Cover" class="playlist-cover">
+      <img [src]="playlist?.imageUrl" [alt]="playlist?.nome" class="playlist-cover">
     </div>
-    <h1 class="playlist-title">Lofi Loft</h1>
-    <p class="playlist-description">soft. chill. dreamy. lo-fi beats</p>
+    <h1 class="playlist-title">{{ playlist?.nome }}</h1>
+    <p class="playlist-description">{{ playlist?.descricao || 'Sua coleção de músicas favoritas.' }}</p>
   </div>
 
   <div class="song-list-container">
-    <div class = "card-music">
-        <div class="img-music">
-             <img src="assets/images/lofi-loft-cover.jpg" alt="Lofi Loft Playlist Cover" class="playlist-cover">
-        </div>
-        <div class = "text-music">
-            <h4>Title music</h4>
-            <span>Artista</span>
-        </div>
-      
-        <a href="">:</a>
+    <div class="card-music" *ngFor="let musica of musicas" (click)="playMusic(musica)">
+      <div class="img-music">
+        <img [src]="musica.imageUrl" [alt]="musica.nome" class="playlist-cover">
+      </div>
+      <div class="text-music">
+        <h4>{{ musica.nome }}</h4>
+        
+        <span>{{ musica.artista?.nome || 'Carregando artista...' }}</span>
+      </div>
+      <button class="more-options-btn-song" (click)="$event.stopPropagation()">
+        <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="currentColor" class="icon-more-options-song"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+      </button>
     </div>
+    <p *ngIf="musicas.length === 0" class="empty-playlist-msg">
+      Esta playlist ainda não tem músicas.
+    </p>
+  </div>
+</div>
 
-    <div class = "card-music">
-        <div class="img-music">
-             <img src="assets/images/lofi-loft-cover.jpg" alt="Lofi Loft Playlist Cover" class="playlist-cover">
-        </div>
-        <div class = "text-music">
-            <h4>Title music</h4>
-            <span>Artista</span>
-        </div>
-      
-        <a href="">:</a>
-    </div>
-
-    <div class = "card-music">
-        <div class="img-music">
-             <img src="assets/images/lofi-loft-cover.jpg" alt="Lofi Loft Playlist Cover" class="playlist-cover">
-        </div>
-        <div class = "text-music">
-            <h4>Title music</h4>
-            <span>Artista</span>
-        </div>
-      
-        <a href="">:</a>
-    </div>
-
-    <div class = "card-music">
-        <div class="img-music">
-             <img src="assets/images/lofi-loft-cover.jpg" alt="Lofi Loft Playlist Cover" class="playlist-cover">
-        </div>
-        <div class = "text-music">
-            <h4>Title music</h4>
-            <span>Artista</span>
-        </div>
-      
-        <a href="">:</a>
-    </div>
-
-    </div>
+<div class="loader-container" *ngIf="isLoading">
+  <div class="loader"></div>
 </div>

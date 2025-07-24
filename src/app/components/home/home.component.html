@@ -13,7 +13,11 @@
 
  
   <section class="content-section">
-    <h2 class="section-title">Playlists</h2>
+    <div style="display: flex; justify-content: space-between;">
+        <h2 class="section-title">Playlists</h2>
+      <a href="/playlists">ver todas</a>
+    </div>
+    
     <div class="horizontal-scroll-container">
       <div class="scroll-item" *ngFor="let playlist of playlists">
         <img [src]="playlist.imageUrl" alt="Capa da playlist {{ playlist.name }}" class="item-image">
@@ -32,21 +36,7 @@
     </div>
   </section>
 
-  <section class="content-section">
-    <h2 class="section-title">Ouvidas recentemente</h2>
-    <ul class="song-list">
-      <li class="song-item" *ngFor="let song of musicasRecentes">
-        <img [src]="song.imageUrl" alt="Capa do álbum da música {{ song.name }}" class="song-image">
-        <div class="song-details">
-          <span class="song-name">{{ song.name }}</span>
-          <span class="song-artist-streams">{{ song.artist }} &middot; {{ song.streams }}</span>
-        </div>
-        <button class="more-options-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-        </button>
-      </li>
-    </ul>
-  </section>
+  
 </div>
 
 <app-nav-bar></app-nav-bar>

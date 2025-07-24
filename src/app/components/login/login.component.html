@@ -13,10 +13,14 @@
         <label class="label-input" for="password">Senha</label>
         <input type="password" id="password" class="input-padrao" name="password" placeholder="Digite sua senha" [(ngModel)]="credentials.senha" required>
       </div>
+      <button type="button" class="bnt-primary" >
+        <a href = "/cadastro" style="text-decoration: none; color: white;"> Realizar Cadastro</a>       
+      </button>
       
       <button type="submit" class="bnt-primary" [disabled]="!loginForm.form.valid">
         Entrar
       </button>
+      
     </form>
   </div>
 </div>

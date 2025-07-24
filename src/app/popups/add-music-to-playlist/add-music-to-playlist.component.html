@@ -1,17 +1,19 @@
-<div class="modal-overlay">
-  <div class="modal-content">
-    <h3 class="modal-title">Adicionar musica selecionada em:</h3>
+<div class="modal-overlay" (click)="onClose()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h3 class="modal-title">Adicionar "{{ musicaParaAdicionar?.nome }}" em:</h3>
     
-    <div class="playlist-selection">
-      <label class="playlist-option">
-        <input type="radio" name="playlist" >
-        <span>playlist nome</span>
+    <div *ngIf="playlists.length > 0" class="playlist-selection">
+      <label *ngFor="let playlist of playlists" class="playlist-option">
+        <input type="radio" name="playlist" [value]="playlist.id" [(ngModel)]="playlistSelecionadaId">
+        <span>{{ playlist.nome }}</span>
       </label>
     </div>
 
+    <p *ngIf="playlists.length === 0">Você não tem nenhuma playlist para adicionar esta música.</p>
+
     <div class="modal-actions">
       <button class="btn-cancel" (click)="onClose()">Cancelar</button>
-      <button class="btn-confirm">Adicionar</button>
+      <button class="btn-confirm" (click)="onConfirm()" [disabled]="!playlistSelecionadaId">Adicionar</button>
     </div>
   </div>
 </div>

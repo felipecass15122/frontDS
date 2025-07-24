@@ -2,20 +2,22 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ArtistaService } from '../../services/artista.service';
-import { ArtistaDTO } from '../../models/artista.dto';
+import { ArtistaCreateDTO } from '../../models/artista.dto';
+import { NavBarComponent } from "../nav-bar/nav-bar.component";
 
 @Component({
   selector: 'app-add-artista',
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule
-  ],
+    FormsModule,
+    NavBarComponent
+],
   templateUrl: './add-artista.component.html',
   styleUrl: './add-artista.component.css'
 })
 export class AddArtistaComponent {
-  artista: ArtistaDTO = {
+  artista: ArtistaCreateDTO = {
     nome: '',
     descricao: ''
   };

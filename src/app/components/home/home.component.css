@@ -41,6 +41,10 @@
   color: #a0a0a0;
 }
 
+.home-container {
+  height: 100vh;
+}
+
 .logout-btn {
   background: none;
   border: none;

@@ -8,6 +8,7 @@ import { AddMusicPlaylistComponent } from './components/add-music-playlist/add-m
 import { CreatePlaylistComponent } from './components/create-playlist/create-playlist.component';
 import { HomeComponent } from './components/home/home.component';
 import { MyPlaylistsComponent } from './components/my-playlists/my-playlists.component';
+import { AllPlaylistsComponent } from './components/all-playlists/all-playlists.component';
 
 export const routes: Routes = [
     { path: 'cadastro', component: RegisterComponent },
@@ -22,6 +23,9 @@ export const routes: Routes = [
     { path: 'addMusicPlaylist', component: AddMusicPlaylistComponent },
     { path: 'createPlaylist', component: CreatePlaylistComponent },
     { path: 'home', component: HomeComponent },
-    { path: 'minhasPlaylists', component: MyPlaylistsComponent }
+    { path: '', component: HomeComponent },
+    { path: 'minhasPlaylists', component: MyPlaylistsComponent },
+    { path: 'playlists', component: AllPlaylistsComponent },
+    
      
 ];
