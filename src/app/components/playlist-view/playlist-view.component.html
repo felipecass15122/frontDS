@@ -30,8 +30,8 @@
         
         <span>{{ musica.artista?.nome || 'Carregando artista...' }}</span>
       </div>
-      <button class="more-options-btn-song" (click)="$event.stopPropagation()">
-        <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="currentColor" class="icon-more-options-song"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+      <button class="delete-btn" (click)="deletarMusicaDaPlaylist(musica.id); $event.stopPropagation()" title="Excluir Música">
+        <span class="material-icons">delete</span> <!-- Ícone de lixeira -->
       </button>
     </div>
     <p *ngIf="musicas.length === 0" class="empty-playlist-msg">

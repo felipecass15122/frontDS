@@ -68,4 +68,22 @@ export class MyPlaylistsComponent {
     
     this.router.navigate(['/playlist', id]);
   }
+
+    deletarPlaylist(id: number): void {
+    if (!confirm('Tem certeza que deseja excluir esta playlist?')) {
+      return;
+    }
+
+    this.playlistService.excluir(id).subscribe({
+      next: () => {
+        alert('Playlist excluída com sucesso!');
+        // Atualiza a lista de playlists após a exclusão
+        this.playlists = this.playlists.filter(p => p.id !== id);
+      },
+      error: (err) => {
+        console.error('Erro ao excluir playlist', err);
+        alert('Ocorreu um erro ao excluir a playlist.');
+      }
+    });
+  }
 }

@@ -72,7 +72,9 @@
 
 .card-info {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;  /* Mantém os itens na mesma linha */
 }
 
 .playlist-name {
@@ -86,4 +88,13 @@
 .playlist-details {
   font-size: 14px;
   color: #a0a0a0;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }

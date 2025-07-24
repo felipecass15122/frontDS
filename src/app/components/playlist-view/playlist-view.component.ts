@@ -158,4 +158,27 @@ export class PlaylistViewComponent {
       console.warn('Esta música não possui um link válido.' + musica.url_musica);
     }
   }
+
+  deletarMusicaDaPlaylist(musicaId: number): void {
+    if (!confirm('Você tem certeza que deseja excluir essa música da playlist?')) {
+      return;
+    }
+
+    this.musicaPlaylistService.excluir(musicaId).pipe(
+      switchMap(() => {
+        // Atualizar a lista local de músicas após a exclusão
+        this.musicas = this.musicas.filter(musica => musica.id !== musicaId);
+        return of(null);
+      })
+    ).subscribe({
+      next: () => {
+        alert('Música removida da playlist com sucesso!');
+      },
+      error: (err) => {
+        // Exibir erro em caso de falha
+        console.error('Erro ao remover música', err);
+        alert('Ocorreu um erro ao remover a música.');
+      }
+    });
+  }
 }

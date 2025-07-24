@@ -21,4 +21,8 @@ export class MusicaPlaylistService {
   public addMusicaToPlaylist(data: MusicasPlaylistCreateDTO): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/add`, data);
   }
+
+  public excluir(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  } 
 }

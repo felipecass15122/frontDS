@@ -24,4 +24,8 @@ export class PlaylistService {
   public findById(id: number): Observable<PlaylistDTO> {
     return this.http.get<PlaylistDTO>(`${this.apiUrl}/${id}`);
   }
+
+  public excluir(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

@@ -1,6 +1,7 @@
 <div class="page-container">
   <h2 class="page-title">Minhas Playlists</h2>
-  <button class="bnt-primary" routerLink="/createPlaylist">Adicionar playlist</button>  
+  <button class="bnt-primary" routerLink="/createPlaylist">Adicionar playlist</button>
+  <div style="margin-bottom: 20px;"></div>
   <div class="loader-container" *ngIf="isLoading">
     <div class="loader"></div>
   </div>
@@ -28,6 +29,10 @@
       
       <div class="card-info">
         <span class="playlist-name">{{ playlist.nome }}</span>
+
+        <button class="delete-btn" (click)="deletarPlaylist(playlist.id)">
+          <span class="material-icons">delete</span>
+        </button>
       </div>
     </div>
   </div>

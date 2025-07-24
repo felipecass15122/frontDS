@@ -110,3 +110,12 @@
     width: fit-content;
     
 }
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #f44336;
+  padding: 5px;
+  transition: 0.3s;
+}
