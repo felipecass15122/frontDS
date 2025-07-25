@@ -8,7 +8,7 @@ import { MusicaApiResponseDTO, MusicaCreateDTO, MusicaDTO } from '../models/musi
   providedIn: 'root'
 })
 export class MusicaService {
-  private readonly apiUrl = 'http://localhost:8080/musica';
+  private readonly apiUrl = 'https://projetoplaylist-ds-fn33.onrender.com/musica';
   constructor(private http: HttpClient) { }
 
   public insert(musicaDTO: MusicaCreateDTO): Observable<any> {

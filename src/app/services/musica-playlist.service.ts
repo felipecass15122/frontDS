@@ -9,7 +9,7 @@ import { MusicasPlaylistCreateDTO } from '../models/musicaPlaylist.dto';
 })
 export class MusicaPlaylistService {
 
-  private readonly apiUrl = 'http://localhost:8080/musicas-playlist';
+  private readonly apiUrl = 'https://projetoplaylist-ds-fn33.onrender.com/musicas-playlist';
 
   constructor(private http: HttpClient) { }
 

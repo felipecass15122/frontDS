@@ -9,7 +9,7 @@ import { UsuarioDTO } from '../models/usuario.dto';
 })
 export class UsuarioService {
 
-  private readonly apiUrl = 'http://localhost:8080/usuario';
+  private readonly apiUrl = 'https://projetoplaylist-ds-fn33.onrender.com/usuario';
  
   constructor(private http: HttpClient) { }
 
